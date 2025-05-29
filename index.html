@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
@@ -6,7 +6,6 @@
   <title>Festival Gastronômico Mundial - Chef Edition</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Open+Sans&display=swap" rel="stylesheet" />
   <style>
-    /* RESET */
     * {
       box-sizing: border-box;
     }
@@ -16,10 +15,9 @@
       background-color: #fafafa;
       color: #1a1a1a;
       scroll-behavior: smooth;
-      padding-top: 80px; /* espaço para menu fixo */
+      padding-top: 80px;
     }
 
-    /* MENU FIXO */
     nav {
       position: fixed;
       top: 0;
@@ -34,7 +32,7 @@
     nav button {
       background: transparent;
       border: none;
-      color: #d4af37; /* dourado */
+      color: #d4af37;
       font-weight: 700;
       font-size: 1rem;
       margin: 0 18px;
@@ -51,7 +49,6 @@
       border-bottom: 2px solid #d4af37;
     }
 
-    /* HEADER */
     header {
       text-align: center;
       padding: 60px 20px 80px;
@@ -59,21 +56,25 @@
       color: #d4af37;
       font-family: 'Playfair Display', serif;
       box-shadow: inset 0 -4px 8px #000000aa;
+      position: relative;
     }
-    header img.logo {
-      max-width: 130px;
-      margin-bottom: 20px;
-      border-radius: 50%;
-      border: 3px solid #d4af37;
-      box-shadow: 0 0 15px #d4af37aa;
-      background: #1a1a1a;
+
+    /* Logo minimalista SVG inline */
+    .logo-svg {
+      width: 120px;
+      height: 120px;
+      margin: 0 auto 20px;
+      display: block;
+      filter: drop-shadow(0 0 5px #d4af37aa);
     }
-    header h1 {
-      font-size: 3.5rem;
-      margin: 0 0 10px;
-      letter-spacing: 3px;
+    .logo-text {
+      font-size: 2.8rem;
+      letter-spacing: 4px;
+      margin: 0 0 8px;
+      font-weight: 700;
+      line-height: 1.1;
     }
-    header p {
+    .logo-subtext {
       font-size: 1.3rem;
       font-style: italic;
       font-weight: 400;
@@ -81,9 +82,8 @@
       margin: 0;
     }
 
-    /* SEÇÃO PRINCIPAL */
     section.categories {
-      max-width: 1100px;
+      max-width: 900px;
       margin: 50px auto 100px;
       padding: 0 15px;
     }
@@ -97,54 +97,35 @@
     }
 
     article.category {
-      display: flex;
-      gap: 30px;
-      margin-bottom: 60px;
-      border: 1.5px solid #d4af37;
-      border-radius: 16px;
-      overflow: hidden;
       background: #fff;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-      transition: box-shadow 0.3s ease;
-    }
-    article.category:hover {
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    }
-    article.category img {
-      width: 350px;
-      height: 230px;
-      object-fit: cover;
-      flex-shrink: 0;
-      border-right: 1.5px solid #d4af37;
-      transition: transform 0.3s ease;
-    }
-    article.category:hover img {
-      transform: scale(1.05);
-    }
-    article.category .content {
+      border: 1.8px solid #d4af37;
+      border-radius: 16px;
       padding: 30px 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
+      margin-bottom: 40px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      transition: box-shadow 0.3s ease;
       color: #222;
     }
-    article.category .content h3 {
+    article.category:hover {
+      box-shadow: 0 12px 38px rgba(0,0,0,0.18);
+    }
+    article.category h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.2rem;
+      font-size: 2.4rem;
       margin-top: 0;
-      margin-bottom: 15px;
+      margin-bottom: 14px;
       color: #b8860b;
       letter-spacing: 1.2px;
     }
-    article.category .content p {
-      font-size: 1.1rem;
-      line-height: 1.6;
+    article.category p {
+      font-size: 1.15rem;
+      line-height: 1.7;
       color: #444;
+      margin: 0;
     }
 
-    /* GALERIA */
     section.gallery {
-      max-width: 1100px;
+      max-width: 900px;
       margin: 0 auto 80px;
       padding: 0 15px;
     }
@@ -157,23 +138,28 @@
       letter-spacing: 1.5px;
     }
     .gallery-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
-      gap: 25px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
     }
-    .gallery-grid img {
-      width: 100%;
+    .gallery-grid > div {
+      width: 280px;
+      height: 180px;
+      background: linear-gradient(135deg, #f3eac2, #d4af37);
       border-radius: 14px;
-      box-shadow: 0 8px 22px rgba(0,0,0,0.15);
-      cursor: pointer;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-    }
-    .gallery-grid img:hover {
-      transform: scale(1.07);
-      box-shadow: 0 14px 38px rgba(0,0,0,0.25);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #4b3a00;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 1.2px;
+      user-select: none;
     }
 
-    /* FOOTER */
     footer {
       background-color: #121212;
       color: #d4af37;
@@ -185,17 +171,14 @@
       box-shadow: inset 0 4px 6px #000000aa;
     }
 
-    /* RESPONSIVO */
     @media (max-width: 950px) {
       article.category {
-        flex-direction: column;
         max-width: 95%;
       }
-      article.category img {
-        width: 100%;
-        height: auto;
-        border-right: none;
-        border-bottom: 1.5px solid #d4af37;
+      .gallery-grid > div {
+        width: 90vw;
+        max-width: 350px;
+        height: 200px;
       }
     }
   </style>
@@ -212,59 +195,45 @@
   </nav>
 
   <header>
-    <img src="logo-festival.png" alt="Logo Festival Gastronômico" class="logo" />
-    <h1>Festival Gastronômico Mundial</h1>
-    <p>Sabores e tradições para os paladares mais exigentes</p>
+    <svg class="logo-svg" viewBox="0 0 64 64" aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" >
+      <circle cx="32" cy="32" r="30" stroke="#d4af37" stroke-width="3" fill="none"/>
+      <path d="M20 40 L44 24 M20 24 L44 40" stroke="#d4af37" stroke-width="3" stroke-linecap="round" />
+      <circle cx="32" cy="32" r="6" fill="#d4af37" />
+    </svg>
+    <h1 class="logo-text">FESTIVAL<br>GASTRONÔMICO<br>MUNDIAL</h1>
+    <p class="logo-subtext">Chef Edition</p>
   </header>
 
   <section class="categories">
 
     <article class="category" id="asia">
-      <img src="asia-comida.jpg" alt="Comidas típicas da Ásia" />
-      <div class="content">
-        <h3>Ásia</h3>
-        <p>Sabores exóticos e delicados, da finesse do sushi ao aroma intenso do curry.</p>
-      </div>
+      <h3>Ásia</h3>
+      <p>Sabores exóticos e delicados, da finesse do sushi ao aroma intenso do curry.</p>
     </article>
 
     <article class="category" id="europa">
-      <img src="europa-comida.jpg" alt="Comidas típicas da Europa" />
-      <div class="content">
-        <h3>Europa</h3>
-        <p>Tradição e sofisticação em cada prato: massas artesanais, queijos finos e vinhos excepcionais.</p>
-      </div>
+      <h3>Europa</h3>
+      <p>Tradição e sofisticação em cada prato: massas artesanais, queijos finos e vinhos excepcionais.</p>
     </article>
 
     <article class="category" id="americas">
-      <img src="america-comida.jpg" alt="Comidas típicas das Américas" />
-      <div class="content">
-        <h3>Américas</h3>
-        <p>Da intensidade do churrasco ao sabor marcante da feijoada, uma viagem de aromas e cores.</p>
-      </div>
+      <h3>Américas</h3>
+      <p>Da intensidade do churrasco ao sabor marcante da feijoada, uma viagem de aromas e cores.</p>
     </article>
 
     <article class="category" id="africa">
-      <img src="africa-comida.jpg" alt="Comidas típicas da África" />
-      <div class="content">
-        <h3>África</h3>
-        <p>Especiarias vibrantes e receitas ancestrais que traduzem cultura e paixão pela comida.</p>
-      </div>
+      <h3>África</h3>
+      <p>Especiarias vibrantes e receitas ancestrais que traduzem cultura e paixão pela comida.</p>
     </article>
 
     <article class="category" id="oceania">
-      <img src="oceania-comida.jpg" alt="Comidas típicas da Oceania" />
-      <div class="content">
-        <h3>Oceania</h3>
-        <p>Sabores puros do mar e da terra, combinados com técnicas modernas de alta gastronomia.</p>
-      </div>
+      <h3>Oceania</h3>
+      <p>Sabores puros do mar e da terra, combinados com técnicas modernas de alta gastronomia.</p>
     </article>
 
     <article class="category" id="mediterraneo">
-      <img src="mediterraneo-comida.jpg" alt="Comidas típicas do Mediterrâneo" />
-      <div class="content">
-        <h3>Mediterrâneo</h3>
-        <p>Receitas milenares com azeite, ervas frescas e ingredientes selecionados para paladares refinados.</p>
-      </div>
+      <h3>Mediterrâneo</h3>
+      <p>Receitas milenares com azeite, ervas frescas e ingredientes selecionados para paladares refinados.</p>
     </article>
 
   </section>
@@ -272,12 +241,12 @@
   <section class="gallery">
     <h2>Galeria de Sabores</h2>
     <div class="gallery-grid">
-      <img src="foto1.jpg" alt="Prato 1" />
-      <img src="foto2.jpg" alt="Prato 2" />
-      <img src="foto3.jpg" alt="Prato 3" />
-      <img src="foto4.jpg" alt="Prato 4" />
-      <img src="foto5.jpg" alt="Prato 5" />
-      <img src="foto6.jpg" alt="Prato 6" />
+      <div>Prato 1</div>
+      <div>Prato 2</div>
+      <div>Prato 3</div>
+      <div>Prato 4</div>
+      <div>Prato 5</div>
+      <div>Prato 6</div>
     </div>
   </section>
 
@@ -286,7 +255,7 @@
   </footer>
 
   <script>
-    const menuHeight = 80; // altura do menu fixo em px (igual ao padding-top do body)
+    const menuHeight = 80;
 
     function scrollToSection(id) {
       const el = document.getElementById(id);
@@ -295,6 +264,5 @@
       window.scrollTo({ top: topPos, behavior: 'smooth' });
     }
   </script>
-
 </body>
 </html>
