@@ -1,4 +1,4 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8" />
@@ -16,6 +16,7 @@
       color: #1a1a1a;
       scroll-behavior: smooth;
       padding-top: 80px;
+      line-height: 1.6;
     }
 
     nav {
@@ -27,20 +28,24 @@
       z-index: 1000;
       display: flex;
       justify-content: center;
-      padding: 15px 0;
+      overflow-x: auto;
+      padding: 15px 10px;
+      -webkit-overflow-scrolling: touch;
     }
     nav button {
+      flex-shrink: 0;
       background: transparent;
       border: none;
       color: #d4af37;
       font-weight: 700;
       font-size: 1rem;
-      margin: 0 18px;
+      margin: 0 12px;
       cursor: pointer;
-      padding: 10px 20px;
+      padding: 10px 18px;
       font-family: 'Playfair Display', serif;
       transition: color 0.3s ease, border-bottom 0.3s ease;
       border-bottom: 2px solid transparent;
+      white-space: nowrap;
     }
     nav button:hover,
     nav button:focus {
@@ -51,101 +56,115 @@
 
     header {
       text-align: center;
-      padding: 60px 20px 80px;
+      padding: 50px 15px 70px;
       background: #121212;
       color: #d4af37;
       font-family: 'Playfair Display', serif;
       box-shadow: inset 0 -4px 8px #000000aa;
       position: relative;
+      max-width: 900px;
+      margin: 0 auto;
+      border-radius: 14px;
     }
 
-    /* Logo minimalista SVG inline */
     .logo-svg {
-      width: 120px;
-      height: 120px;
+      width: 100px;
+      height: 100px;
       margin: 0 auto 20px;
       display: block;
       filter: drop-shadow(0 0 5px #d4af37aa);
     }
     .logo-text {
-      font-size: 2.8rem;
-      letter-spacing: 4px;
-      margin: 0 0 8px;
+      font-size: 2.2rem;
+      letter-spacing: 3px;
+      margin: 0 0 6px;
       font-weight: 700;
       line-height: 1.1;
     }
     .logo-subtext {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       font-style: italic;
       font-weight: 400;
       color: #f0e6b8;
       margin: 0;
     }
 
-    section.categories {
+    main {
       max-width: 900px;
       margin: 50px auto 100px;
       padding: 0 15px;
     }
+
+    section.categories {
+      margin-bottom: 80px;
+    }
     section.categories h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.8rem;
+      font-size: 2.6rem;
       color: #333;
       text-align: center;
-      margin-bottom: 50px;
-      letter-spacing: 1.5px;
+      margin-bottom: 40px;
+      letter-spacing: 1.3px;
+    }
+
+    .categories-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
     }
 
     article.category {
       background: #fff;
       border: 1.8px solid #d4af37;
       border-radius: 16px;
-      padding: 30px 25px;
-      margin-bottom: 40px;
+      padding: 28px 24px;
       box-shadow: 0 6px 20px rgba(0,0,0,0.1);
       transition: box-shadow 0.3s ease;
       color: #222;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     article.category:hover {
       box-shadow: 0 12px 38px rgba(0,0,0,0.18);
     }
     article.category h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 2.4rem;
+      font-size: 2.1rem;
       margin-top: 0;
       margin-bottom: 14px;
       color: #b8860b;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.1px;
     }
     article.category p {
       font-size: 1.15rem;
       line-height: 1.7;
       color: #444;
       margin: 0;
+      flex-grow: 1;
     }
 
     section.gallery {
-      max-width: 900px;
-      margin: 0 auto 80px;
-      padding: 0 15px;
+      margin-bottom: 80px;
     }
     section.gallery h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem;
+      font-size: 2.8rem;
       color: #333;
       text-align: center;
-      margin-bottom: 40px;
-      letter-spacing: 1.5px;
+      margin-bottom: 35px;
+      letter-spacing: 1.3px;
     }
     .gallery-grid {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 24px;
+      justify-items: center;
     }
     .gallery-grid > div {
-      width: 280px;
-      height: 180px;
+      width: 100%;
+      max-width: 280px;
+      height: 160px;
       background: linear-gradient(135deg, #f3eac2, #d4af37);
       border-radius: 14px;
       box-shadow: 0 10px 25px rgba(0,0,0,0.15);
@@ -154,10 +173,12 @@
       justify-content: center;
       color: #4b3a00;
       font-family: 'Playfair Display', serif;
-      font-size: 1.4rem;
+      font-size: 1.3rem;
       font-weight: 700;
-      letter-spacing: 1.2px;
+      letter-spacing: 1.1px;
       user-select: none;
+      text-align: center;
+      padding: 0 10px;
     }
 
     footer {
@@ -166,19 +187,56 @@
       text-align: center;
       font-weight: 600;
       font-size: 1rem;
-      padding: 30px 15px;
+      padding: 28px 15px;
       letter-spacing: 1px;
       box-shadow: inset 0 4px 6px #000000aa;
+      border-radius: 0 0 14px 14px;
     }
 
-    @media (max-width: 950px) {
-      article.category {
-        max-width: 95%;
+    /* Scrollbar styling for nav on webkit browsers */
+    nav::-webkit-scrollbar {
+      height: 6px;
+    }
+    nav::-webkit-scrollbar-thumb {
+      background: #d4af37;
+      border-radius: 10px;
+    }
+    nav::-webkit-scrollbar-track {
+      background: #121212;
+    }
+
+    @media (max-width: 600px) {
+      nav button {
+        font-size: 0.9rem;
+        padding: 8px 14px;
+        margin: 0 8px;
+      }
+      header {
+        padding: 40px 15px 60px;
+        border-radius: 0;
+      }
+      .logo-svg {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 16px;
+      }
+      .logo-text {
+        font-size: 1.8rem;
+        letter-spacing: 2.5px;
+      }
+      .logo-subtext {
+        font-size: 1rem;
+      }
+      section.categories h2,
+      section.gallery h2 {
+        font-size: 2rem;
+      }
+      article.category h3 {
+        font-size: 1.8rem;
       }
       .gallery-grid > div {
-        width: 90vw;
-        max-width: 350px;
-        height: 200px;
+        max-width: 100%;
+        height: 140px;
       }
     }
   </style>
@@ -204,51 +262,59 @@
     <p class="logo-subtext">Chef Edition</p>
   </header>
 
-  <section class="categories">
+  <main>
 
-    <article class="category" id="asia">
-      <h3>Ásia</h3>
-      <p>Sabores exóticos e delicados, da finesse do sushi ao aroma intenso do curry.</p>
-    </article>
+    <section class="categories">
 
-    <article class="category" id="europa">
-      <h3>Europa</h3>
-      <p>Tradição e sofisticação em cada prato: massas artesanais, queijos finos e vinhos excepcionais.</p>
-    </article>
+      <h2>Categorias Gastronômicas</h2>
 
-    <article class="category" id="americas">
-      <h3>Américas</h3>
-      <p>Da intensidade do churrasco ao sabor marcante da feijoada, uma viagem de aromas e cores.</p>
-    </article>
+      <div class="categories-grid">
+        <article class="category" id="asia">
+          <h3>Ásia</h3>
+          <p>Sabores exóticos e delicados, da finesse do sushi ao aroma intenso do curry.</p>
+        </article>
 
-    <article class="category" id="africa">
-      <h3>África</h3>
-      <p>Especiarias vibrantes e receitas ancestrais que traduzem cultura e paixão pela comida.</p>
-    </article>
+        <article class="category" id="europa">
+          <h3>Europa</h3>
+          <p>Tradição e sofisticação em cada prato: massas artesanais, queijos finos e vinhos excepcionais.</p>
+        </article>
 
-    <article class="category" id="oceania">
-      <h3>Oceania</h3>
-      <p>Sabores puros do mar e da terra, combinados com técnicas modernas de alta gastronomia.</p>
-    </article>
+        <article class="category" id="americas">
+          <h3>Américas</h3>
+          <p>Da intensidade do churrasco ao sabor marcante da feijoada, uma viagem de aromas e cores.</p>
+        </article>
 
-    <article class="category" id="mediterraneo">
-      <h3>Mediterrâneo</h3>
-      <p>Receitas milenares com azeite, ervas frescas e ingredientes selecionados para paladares refinados.</p>
-    </article>
+        <article class="category" id="africa">
+          <h3>África</h3>
+          <p>Especiarias vibrantes e receitas ancestrais que traduzem cultura e paixão pela comida.</p>
+        </article>
 
-  </section>
+        <article class="category" id="oceania">
+          <h3>Oceania</h3>
+          <p>Sabores puros do mar e da terra, combinados com técnicas modernas de alta gastronomia.</p>
+        </article>
 
-  <section class="gallery">
-    <h2>Galeria de Sabores</h2>
-    <div class="gallery-grid">
-      <div>Prato 1</div>
-      <div>Prato 2</div>
-      <div>Prato 3</div>
-      <div>Prato 4</div>
-      <div>Prato 5</div>
-      <div>Prato 6</div>
-    </div>
-  </section>
+        <article class="category" id="mediterraneo">
+          <h3>Mediterrâneo</h3>
+          <p>Receitas milenares com azeite, ervas frescas e ingredientes selecionados para paladares refinados.</p>
+        </article>
+      </div>
+
+    </section>
+
+    <section class="gallery">
+      <h2>Galeria de Sabores</h2>
+      <div class="gallery-grid">
+        <div>Prato 1</div>
+        <div>Prato 2</div>
+        <div>Prato 3</div>
+        <div>Prato 4</div>
+        <div>Prato 5</div>
+        <div>Prato 6</div>
+      </div>
+    </section>
+
+  </main>
 
   <footer>
     © 2025 Festival Gastronômico Mundial - Chef Edition
@@ -264,5 +330,6 @@
       window.scrollTo({ top: topPos, behavior: 'smooth' });
     }
   </script>
+
 </body>
 </html>
